@@ -32,7 +32,7 @@ Thank you for checking out the Health Vision project! Follow the steps below to 
 
 ## Screenshots
 (screenshots here!......)
-
+![App Screenshot](https://github.com/shivanshu099/health_vision_project/blob/main/project_screenshot1.png)
 
 ---
 
