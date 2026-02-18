@@ -1,0 +1,146 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Page</title>
+    {% load static%}
+    <style>
+        body {
+            background-color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        /* Bounce animation */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 32px;
+        }
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 32px;
+        }
+        .image-box {
+            border: 2px solid black;
+            width: 192px;
+            height: 256px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("{% static 'harry.jpeg' %}");
+            background-position: center;
+            background-size: cover;
+            animation: bounce 2s infinite;
+        }
+        .form-container {
+            background-color: white;
+            padding: 32px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 384px;
+        }
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-container label {
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .form-container input[type="file"] {
+            display: block;
+            margin: 0 auto;
+        }
+        .form-container .file-upload {
+            border: 2px dashed #d63384;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        .form-container input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+        }
+        .form-container button {
+            width: 100%;
+            background-color: #d63384;
+            color: white;
+            font-size: 1rem;
+            padding: 8px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>"Seeing Gains Clearly – Because the Mirror Isn’t Enough!"</h1>
+        <div class="content">
+            <img class="image-box" >
+            <div class="form-container">
+                <form  method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                    <div class="file-upload">
+                        <label>Upload Image</label>
+                        <input type="file" name = "image" required>
+                    </div>
+                    <label>Name</label>
+                    <input type="text" name="name" required>
+                    <label>Age</label>
+                    <input type="text"  name = "age" required>
+                    <label>Gender</label>
+                    <input type="text"  name = "gender" required>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <img class="image-box" >
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

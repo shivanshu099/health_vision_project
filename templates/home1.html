@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Vision - Home</title>
+    {% load static%}
+    <style>
+        /* Basic styling for layout */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        
+        /* Container styling */
+        .container {
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        /* Navigation */
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            width: 100%;
+        }
+        
+        .navigation .nav-button {
+            padding: 10px 15px;
+            border: 2px solid #000;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        
+        /* Tagline */
+        .tagline {
+            font-size: 2.5rem;
+            margin: 3rem 0;
+            font-style: italic;
+        }
+        
+        /* Images and report button */
+        .content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        /* Bounce animation */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+        }
+        
+        .image-box {
+            width: 150px;
+            height: 200px;
+            border: 2px solid #c4065f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #c4065f;
+            font-size: 1em;
+            text-transform: uppercase;
+            background-image: url("{% static 'harry.jpeg' %}");
+            animation: bounce 2s infinite;
+            background-position: center;
+            background-size: cover;
+        }
+        
+        .report-button {
+            padding: 15px 20px;
+            border: 2px solid #000;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            background-color: #007BFF;
+            color: white;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+            /*animation: pulse 2s infinite;*/
+            margin: 12px auto;
+        }
+        
+        .report-button:hover {
+            background-color: #c4065f;
+        }
+        
+        /* Footer */
+        .footer {
+            height: min-content;
+            font-size: 0.9em;
+            color: #555;
+            border-top: 1px solid #ddd;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+        }
+        .butm{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .tagline{
+                font-size: 1rem;
+            }
+            .report-button {
+                width: 80%;
+            }
+            .image-box{
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Container for the main content -->
+    <div class="container">
+        
+        <!-- Navigation buttons -->
+        <div class="navigation">
+            <div class="nav-button">Home</div>
+            <div class="nav-button" onclick="location.href='{% url 'about' %} '" >About</div>
+            {% if user.is_authenticated %}
+            <div class="nav-button" onclick = "location.href='{% url 'logout' %} '" >logout</div>
+            {% else %}
+            <div class="nav-button" onclick = "location.href='{% url 'login' %} '" >Login</div>
+            {% endif %}
+        </div>
+        
+        <!-- Tagline -->
+        {% if user.is_authenticated %}
+        <div class="tagline">"Hi,{{user.username }} Skip the Mirror Selfies – Your Workout Plan's the Real Deal!"</div>
+        {% else %}
+        <div class="tagline">"Skip the Mirror Selfies – Your Workout Plan's the Real Deal!"</div>
+        {% endif %}
+        <!---<div class="tagline">"Skip the Mirror Flex – Let Your Report Do the Talking!"</div>--->
+        <!-- Content area with images and report button -->
+        <div class="content">
+            <img class="image-box">
+            <div class="butm">
+            <button class="report-button" onclick="location.href='{% url 'report' %}'" >Make the Workout Plan</button>
+            <button class="report-button" onclick="location.href='{% url 'chat' %}'" >talk to spooter</button>
+            </div>
+            <img class="image-box">
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">Made with ❤️ by Shivanshu Prajapati <br><p>&copy; 2024 Health Vision. All Rights Reserved.</p></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
