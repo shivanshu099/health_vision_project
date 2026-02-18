@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-r3(#m2_ksiu*i2mi4jx9g@t!e3w8ua62300a(lxvh^v$ncup=i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "health-vision-project-1.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
 
 
 # Application definition
