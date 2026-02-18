@@ -29,6 +29,8 @@ ALLOWED_HOSTS = [
     "health-vision-project-1.onrender.com",
     "localhost",
     "127.0.0.1",
+    "https://health-vision-project-1.onrender.com",
+    "health-vision-project-1.onrender.com"
 ]
 
 
